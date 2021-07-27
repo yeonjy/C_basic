@@ -42,7 +42,7 @@ int main(void)
 	printf("세번째 값: %d\n", three);
 
 	// 문자(한 글자), 문자열(한 글자 이상의 여러 글자)
-	char c = 'A';
+	char c = 'A';                             // 작은 따옴표로 입력해야만 정상적이게 출력됨
 	printf("%c\n", c);
 
 	char str[256];                            // char c 와 같은 문자를 256개 만든다는 의미
