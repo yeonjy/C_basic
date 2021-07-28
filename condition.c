@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 int main_condition(void)
 {
 	// 버스를 탄다고 가정. 학생/ 일반인으로 구분 (일반인 : 20세)
@@ -100,6 +101,18 @@ int main_condition(void)
 	else
 	{
 		printf("몰라요\n");
+	}
+	
+	
+	srand(time(NULL));
+	int i = rand() % 3;
+	switch (i)
+	{
+	case 0: printf("가위\n"); break;
+	case 1: printf("바위\n"); break;
+	case 2: printf("보\n"); break;
+	default:printf("몰라요\n"); break;           // 다 아닐 경우
+	// case 특징: 만약 i = 1 이면 case 0 스킵, case 1 출력 그 이후 코드 조건은 확인하지 않고 무조건 출력  => break; 써서 해당 반복 탈출하도록 함
 	}
 
 	return 0;
