@@ -7,7 +7,7 @@ int main_condition(void)
 	// if (조건) {   } else {   }
 	if (age >= 20)
 	{
-		("일반인 입니다.\n");
+		printf("일반인 입니다.\n");
 	}
 	else
 	{
