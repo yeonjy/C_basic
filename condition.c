@@ -1,61 +1,61 @@
 #include <stdio.h>
 int main_condition(void)
 {
-	// ¹ö½º¸¦ Åº´Ù°í °¡Á¤. ÇÐ»ý/ ÀÏ¹ÝÀÎÀ¸·Î ±¸ºÐ (ÀÏ¹ÝÀÎ : 20¼¼)
+	// ë²„ìŠ¤ë¥¼ íƒ„ë‹¤ê³  ê°€ì •. í•™ìƒ/ ì¼ë°˜ì¸ìœ¼ë¡œ êµ¬ë¶„ (ì¼ë°˜ì¸ : 20ì„¸)
 	int age = 15;
-	// if (Á¶°Ç) {   } else {   }
+	// if (ì¡°ê±´) {   } else {   }
 	if (age >= 20)
 	{
-		"ÀÏ¹ÝÀÎ ÀÔ´Ï´Ù.\n");
+		("ì¼ë°˜ì¸ ìž…ë‹ˆë‹¤.\n");
 	}
 	else
 	{
-		printf("ÇÐ»ýÀÔ´Ï´Ù.\n");
+		printf("í•™ìƒìž…ë‹ˆë‹¤.\n");
 	}
 
-	// ÃÊµîÇÐ»ý(8-13) / ÁßÇÐ»ý(14-16) / °íµîÇÐ»ý(17-19)À¸·Î ³ª´©¸é?
+	// ì´ˆë“±í•™ìƒ(8-13) / ì¤‘í•™ìƒ(14-16) / ê³ ë“±í•™ìƒ(17-19)ìœ¼ë¡œ ë‚˜ëˆ„ë©´?
 	// if / else if/ else
 	int age = 21;
-	if (age >= 8 && age <= 13)          // &&ÀÇ ¶æ: ¾ç ¿· º¯ÀÇ Á¶°ÇÀÌ ¸ðµÎ ¸¸Á·ÇÒ ¶§ (age >=8 ÀÌ¸é¼­ age <= 13 ÀÏ ¶§)
+	if (age >= 8 && age <= 13)          // &&ì˜ ëœ»: ì–‘ ì˜† ë³€ì˜ ì¡°ê±´ì´ ëª¨ë‘ ë§Œì¡±í•  ë•Œ (age >=8 ì´ë©´ì„œ age <= 13 ì¼ ë•Œ)
 	{
-		printf("ÃÊµîÇÐ»ýÀÔ´Ï´Ù\n");
+		printf("ì´ˆë“±í•™ìƒìž…ë‹ˆë‹¤\n");
 	}
 	else if (age >= 14 && age <= 16)
 	{
-		printf("ÁßÇÐ»ýÀÔ´Ï´Ù.\n");
+		printf("ì¤‘í•™ìƒìž…ë‹ˆë‹¤.\n");
 	}
 	else if (age >= 17 && age <= 19)
 	{
-		printf("°íµîÇÐ»ýÀÔ´Ï´Ù.\n");
+		printf("ê³ ë“±í•™ìƒìž…ë‹ˆë‹¤.\n");
 	}
 	else
-		printf("ÇÐ»ýÀÌ ¾Æ´Ñ°¡ºÁ¿ä");
+		printf("í•™ìƒì´ ì•„ë‹Œê°€ë´ìš”");
 
 
 	// break / continue
-	// 1¹øºÎÅÍ 30¹ø±îÁö ÀÖ´Â ¹Ý¿¡¼­ 1¹ø¿¡¼­ 5¹ø±îÁö Á¶º° ¹ßÇ¥¸¦ ÇÕ´Ï´Ù.
+	// 1ë²ˆë¶€í„° 30ë²ˆê¹Œì§€ ìžˆëŠ” ë°˜ì—ì„œ 1ë²ˆì—ì„œ 5ë²ˆê¹Œì§€ ì¡°ë³„ ë°œí‘œë¥¼ í•©ë‹ˆë‹¤.
 	for (int i = 1; i <= 30; i++)
 	{
 		if (i >= 6)
 		{
-			printf("³ª¸ÓÁö ÇÐ»ýÀº Áý¿¡ °¡¼¼¿ä\n");
+			printf("ë‚˜ë¨¸ì§€ í•™ìƒì€ ì§‘ì— ê°€ì„¸ìš”\n");
 			break;
 		}
-		printf("%d ¹ø ÇÐ»ýÀº Á¶º° ¹ßÇ¥ ÁØºñ¸¦ ÇÏ¼¼¿ä\n", i);
+		printf("%d ë²ˆ í•™ìƒì€ ì¡°ë³„ ë°œí‘œ ì¤€ë¹„ë¥¼ í•˜ì„¸ìš”\n", i);
 	}
 
-	// 1¹ø ºÎÅÍ 30¹ø±îÁö ÀÖ´Â ¹Ý¿¡¼­ 7¹ø ÇÐ»ýÀº ¾ÆÆÄ¼­ °á¼®
-	// 7¹øÀ» Á¦¿ÜÇÏ°í 6¹øºÎÅÍ 10¹ø±îÁö Á¶º° ¹ßÇ¥¸¦ ÇÏ¼¼¿ä.
+	// 1ë²ˆ ë¶€í„° 30ë²ˆê¹Œì§€ ìžˆëŠ” ë°˜ì—ì„œ 7ë²ˆ í•™ìƒì€ ì•„íŒŒì„œ ê²°ì„
+	// 7ë²ˆì„ ì œì™¸í•˜ê³  6ë²ˆë¶€í„° 10ë²ˆê¹Œì§€ ì¡°ë³„ ë°œí‘œë¥¼ í•˜ì„¸ìš”.
 	for (int i = 1; i <= 30; i++)
 	{
 		if (i >= 6 && i <= 10)
 		{
 			if (i == 7)
 			{
-				printf("%d ¹ø ÇÐ»ýÀº °á¼®ÀÔ´Ï´Ù.\n", i);
-				continue;                                         // continue¸¦ ¸¸³ª¸é ±× µÚ¿¡ ÄÚµåµéÀ» ½ÇÇàÇÏÁö ¾Ê°í ´ÙÀ½ ¹Ýº¹À¸·Î ³Ñ¾î°¨
+				printf("%d ë²ˆ í•™ìƒì€ ê²°ì„ìž…ë‹ˆë‹¤.\n", i);
+				continue;                                         // continueë¥¼ ë§Œë‚˜ë©´ ê·¸ ë’¤ì— ì½”ë“œë“¤ì„ ì‹¤í–‰í•˜ì§€ ì•Šê³  ë‹¤ìŒ ë°˜ë³µìœ¼ë¡œ ë„˜ì–´ê°
 			}
-			printf("%d ¹ø ÇÐ»ýÀº Á¶º° ¹ßÇ¥ ÁØºñ¸¦ ÇÏ¼¼¿ä\n", i);
+			printf("%d ë²ˆ í•™ìƒì€ ì¡°ë³„ ë°œí‘œ ì¤€ë¹„ë¥¼ í•˜ì„¸ìš”\n", i);
 		}
 	}
 
@@ -66,20 +66,20 @@ int main_condition(void)
 	int d = 13;
 	if (a == b && c == d)
 	{
-		printf("a¿Í b´Â °°°í, c ¿Í bµµ °°½À´Ï´Ù.\n");
+		printf("aì™€ bëŠ” ê°™ê³ , c ì™€ bë„ ê°™ìŠµë‹ˆë‹¤.\n");
 	}
 	else
 	{
-		printf("°ªÀÌ ¼­·Î ´Ù¸£³×¿ä.\n");
+		printf("ê°’ì´ ì„œë¡œ ë‹¤ë¥´ë„¤ìš”.\n");
 	}
 
 	if (a == b || c == d)
 	{
-		printf("a¿Í b È¤Àº c¿Í dÀÇ °ªÀÌ °°½À´Ï´Ù..\n");
+		printf("aì™€ b í˜¹ì€ cì™€ dì˜ ê°’ì´ ê°™ìŠµë‹ˆë‹¤..\n");
 	}
 	else
 	{
-		printf("°ªÀÌ ¼­·Î ´Ù¸£³×¿ä.\n");
+		printf("ê°’ì´ ì„œë¡œ ë‹¤ë¥´ë„¤ìš”.\n");
 	}
 
 	return 0;
