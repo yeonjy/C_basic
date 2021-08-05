@@ -1,9 +1,9 @@
-// long ÀÌ¶õ?
-// int¿Í µ¿ÀÏ(32ºñÆ® ¿î¿µÃ¼Á¦¿¡¼­¸¸!!)
-// int´Â ¿î¿µÃ¼Á¦ÀÇ Å©±â¿Í ¶È°°°Ô ¼³Á¤µÇÁö¸¸, longÀº ¿î¿µÃ¼Á¦ÀÇ Å©±â¿¡ »ó°ü ¾øÀÌ 32ºñÆ®·Î °íÁ¤
+// long ì´ëž€?
+// intì™€ ë™ì¼(32ë¹„íŠ¸ ìš´ì˜ì²´ì œì—ì„œë§Œ!!)
+// intëŠ” ìš´ì˜ì²´ì œì˜ í¬ê¸°ì™€ ë˜‘ê°™ê²Œ ì„¤ì •ë˜ì§€ë§Œ, longì€ ìš´ì˜ì²´ì œì˜ í¬ê¸°ì— ìƒê´€ ì—†ì´ 32ë¹„íŠ¸ë¡œ ê³ ì •
 
 
-/*#include <stdio.h>
+#include <stdio.h>
 #include <time.h>
 
 int level;
@@ -14,93 +14,93 @@ void initData();
 void printfFishes();
 void decreaseWater(long elapsedTime);
 
-// ¹°°í±â°¡ 6¸¶¸®°¡ ÀÖ´Ù.
-// ÀÌµéÀº ¾îÇ×¿¡ »ì°í ÀÖ´Âµ¥, »ç¸·ÀÌ¿¡¿ä.
-// »ç¸·ÀÌ ³Ê¹« ´þ°í °ÇÁ¶ÇØ¼­ ¹°ÀÌ ¾ÆÁÖ »¡¸® Áõ¹ßÀ» ÇØ¿ä.
-// ¹°ÀÌ ´Ù Áõ¹ßÇÏ±â Àü¿¡ ºÎÁö·±È÷ ¾îÇ×¿¡ ¹°À» Áà¼­ ¹°°í±â¸¦ »ì·ÁÁÖ¼¼¿ä~~
-// ¹°°í±â´Â ½Ã°£ÀÌ Áö³¯¼ö·Ï Á¡Á¡ Ä¿Á®¼­... ³ªÁß¿¡´Â.. ³È³È
+// ë¬¼ê³ ê¸°ê°€ 6ë§ˆë¦¬ê°€ ìžˆë‹¤.
+// ì´ë“¤ì€ ì–´í•­ì— ì‚´ê³  ìžˆëŠ”ë°, ì‚¬ë§‰ì´ì—ìš”.
+// ì‚¬ë§‰ì´ ë„ˆë¬´ ë¥ê³  ê±´ì¡°í•´ì„œ ë¬¼ì´ ì•„ì£¼ ë¹¨ë¦¬ ì¦ë°œì„ í•´ìš”.
+// ë¬¼ì´ ë‹¤ ì¦ë°œí•˜ê¸° ì „ì— ë¶€ì§€ëŸ°ížˆ ì–´í•­ì— ë¬¼ì„ ì¤˜ì„œ ë¬¼ê³ ê¸°ë¥¼ ì‚´ë ¤ì£¼ì„¸ìš”~~
+// ë¬¼ê³ ê¸°ëŠ” ì‹œê°„ì´ ì§€ë‚ ìˆ˜ë¡ ì ì  ì»¤ì ¸ì„œ... ë‚˜ì¤‘ì—ëŠ”.. ëƒ ëƒ 
 
 int main_pointer_project(void)
 {
-	long startTime = 0;                                    // °ÔÀÓ ½ÃÀÛ ½Ã°£
-	long totalElapsedTime = 0;                             // ÃÑ °æ°ú ½Ã°£
-	long prevElapsedTime = 0;                              // Á÷Àü °æ°ú ½Ã°£ (ÃÖ±Ù¿¡ ¹°À» ÁØ ½Ã°£ °£°Ý)
+	long startTime = 0;                                    // ê²Œìž„ ì‹œìž‘ ì‹œê°„
+	long totalElapsedTime = 0;                             // ì´ ê²½ê³¼ ì‹œê°„
+	long prevElapsedTime = 0;                              // ì§ì „ ê²½ê³¼ ì‹œê°„ (ìµœê·¼ì— ë¬¼ì„ ì¤€ ì‹œê°„ ê°„ê²©)
 
-	int num;                                               // ¸î ¹ø ¾îÇ×¿¡ ¹°À» ÁÙ °ÍÀÎÁö (ÃÖ±Ù¿¡ ¹°À» ÁØ ½Ã°£ °£°Ý)
+	int num;                                               // ëª‡ ë²ˆ ì–´í•­ì— ë¬¼ì„ ì¤„ ê²ƒì¸ì§€ (ìµœê·¼ì— ë¬¼ì„ ì¤€ ì‹œê°„ ê°„ê²©)
 	initData();
 
 	cursor = arrayFish;                                    // cursor[0] ... cursor[1] ...
 
-	startTime = clock();                                   // ÇöÀç ½Ã°£À» millisecond (1000ºÐÀÇ 1ÃÊ) ´ÜÀ§·Î ¹ÝÈ¯
+	startTime = clock();                                   // í˜„ìž¬ ì‹œê°„ì„ millisecond (1000ë¶„ì˜ 1ì´ˆ) ë‹¨ìœ„ë¡œ ë°˜í™˜
 	while (1)
 	{
 		printfFishes();
-		printf("¸î ¹ø ¾îÇ×¿¡ ¹°À» ÁÖ½Ã°Ú¾î¿ä? ");
+		printf("ëª‡ ë²ˆ ì–´í•­ì— ë¬¼ì„ ì£¼ì‹œê² ì–´ìš”? ");
 		scanf_s("%d", &num);
 
-		//ÀÔ·Â°ª Ã¼Å©
+		//ìž…ë ¥ê°’ ì²´í¬
 		if (num < 1 || num > 6)
 		{
-			printf("\nÀÔ·Â°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.\n");
+			printf("\nìž…ë ¥ê°’ì´ ìž˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
 			continue;
 		}
 
-		// ÃÑ °æ°ú ½Ã°£
-		totalElapsedTime = (clock() - startTime) / CLOCKS_PER_SEC; // ÃÊ ´ÜÀ§·Î ¹Ù²ãÁÖ´Â ¿ªÇÒ(6000millisecond -> 6ÃÊ)
-		printf("ÃÑ °æ°ú ½Ã°£ : %ld ÃÊ\n", totalElapsedTime);
+		// ì´ ê²½ê³¼ ì‹œê°„
+		totalElapsedTime = (clock() - startTime) / CLOCKS_PER_SEC; // ì´ˆ ë‹¨ìœ„ë¡œ ë°”ê¿”ì£¼ëŠ” ì—­í• (6000millisecond -> 6ì´ˆ)
+		printf("ì´ ê²½ê³¼ ì‹œê°„ : %ld ì´ˆ\n", totalElapsedTime);
 
-		// Á÷Àü ¹° ÁØ ½Ã°£ ( ¸¶Áö¸·À¸·Î ¹° ÁØ ½Ã°£) ÀÌÈÄ·Î Èå¸¥ ½Ã°£
+		// ì§ì „ ë¬¼ ì¤€ ì‹œê°„ ( ë§ˆì§€ë§‰ìœ¼ë¡œ ë¬¼ ì¤€ ì‹œê°„) ì´í›„ë¡œ íë¥¸ ì‹œê°„
 		prevElapsedTime = totalElapsedTime - prevElapsedTime;
-		printf("ÃÖ±Ù °æ°ú ½Ã°£ : %ld ÃÊ\n", prevElapsedTime);
+		printf("ìµœê·¼ ê²½ê³¼ ì‹œê°„ : %ld ì´ˆ\n", prevElapsedTime);
 
-		// ¾îÇ×ÀÇ ¹°À» °¨¼Ò (Áõ¹ß)
+		// ì–´í•­ì˜ ë¬¼ì„ ê°ì†Œ (ì¦ë°œ)
 		decreaseWater(prevElapsedTime);
 
-		// »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ¾îÇ×¿¡ ¹°À» ÁØ´Ù
-		// 1. ¾îÇ×ÀÇ ¹°ÀÌ 0 ÀÌ¸é? ¹°À» ÁÖÁö ¾È´Â´Ù... ÀÌ¹Ì ¹°°í±â Á×À½..
+		// ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ ì–´í•­ì— ë¬¼ì„ ì¤€ë‹¤
+		// 1. ì–´í•­ì˜ ë¬¼ì´ 0 ì´ë©´? ë¬¼ì„ ì£¼ì§€ ì•ˆëŠ”ë‹¤... ì´ë¯¸ ë¬¼ê³ ê¸° ì£½ìŒ..
 		if (cursor[num - 1] <= 0)
 		{
-			printf("%d ¹ø ¹°°í±â´Â ÀÌ¹Ì Á×¾ú½À´Ï´Ù.. ¹°À» ÁÖÁö ¾Ê½À´Ï´Ù.\n", num);
+			printf("%d ë²ˆ ë¬¼ê³ ê¸°ëŠ” ì´ë¯¸ ì£½ì—ˆìŠµë‹ˆë‹¤.. ë¬¼ì„ ì£¼ì§€ ì•ŠìŠµë‹ˆë‹¤.\n", num);
 		}
-		// 2. ¾îÇ×ÀÇ ¹°ÀÌ 0 ÀÌ ¾Æ´Ñ °æ¿ì? ¹°À» ÁØ´Ù ! 100À» ³ÑÁö ¾Ê´ÂÁö Ã¼Å©
-		// ÇöÀç ¾îÇ×ÀÇ ¹° + 1 <= 100 Ã¼Å©
+		// 2. ì–´í•­ì˜ ë¬¼ì´ 0 ì´ ì•„ë‹Œ ê²½ìš°? ë¬¼ì„ ì¤€ë‹¤ ! 100ì„ ë„˜ì§€ ì•ŠëŠ”ì§€ ì²´í¬
+		// í˜„ìž¬ ì–´í•­ì˜ ë¬¼ + 1 <= 100 ì²´í¬
 		else if (cursor[num - 1] + 1 <= 100)
 		{
-			// ¹°À» ÁØ´Ù
-			printf("%d ¹ø ¾îÇ×¿¡ ¹°À» ÁÝ´Ï´Ù.\n\n", num);
+			// ë¬¼ì„ ì¤€ë‹¤
+			printf("%d ë²ˆ ì–´í•­ì— ë¬¼ì„ ì¤ë‹ˆë‹¤.\n\n", num);
 			cursor[num - 1] += 1;
 		}
 
-		// ·¹º§¾÷À» ÇÒ °ÇÁö È®ÀÎ (·¹º§¾÷Àº 20ÃÊ¸¶´Ù ÇÑ ¹ø¾¿ ¼öÇà)
-		if (totalElapsedTime / 20 > level - 1)              // 19ÃÊ : 0.XX = 0    20ÃÊ : 1.XX > 0  ???????? Á¤¼ö¶ó¼­ ±×·±°¡...
+		// ë ˆë²¨ì—…ì„ í•  ê±´ì§€ í™•ì¸ (ë ˆë²¨ì—…ì€ 20ì´ˆë§ˆë‹¤ í•œ ë²ˆì”© ìˆ˜í–‰)
+		if (totalElapsedTime / 20 > level - 1)              // 19ì´ˆ : 0.XX = 0    20ì´ˆ : 1.XX > 0  ???????? ì •ìˆ˜ë¼ì„œ ê·¸ëŸ°ê°€...
 		{
 			level++;                                        // level : 1 -> level : 2
-			printf(" *** Ãà ·¹º§¾÷! ±âÁ¸ %d ·¹º§¿¡¼­ %d ·¹º§·Î ¾÷±×·¹ÀÌµå ***\n\n\n", level - 1, level);
+			printf(" *** ì¶• ë ˆë²¨ì—…! ê¸°ì¡´ %d ë ˆë²¨ì—ì„œ %d ë ˆë²¨ë¡œ ì—…ê·¸ë ˆì´ë“œ ***\n\n\n", level - 1, level);
 
-			// ÃÖÁ¾ ·¹º§ : 5
+			// ìµœì¢… ë ˆë²¨ : 5
 			if (level == 5)
 			{
-				printf("\n\nÃàÇÏÇÕ´Ï´Ù. ÃÖ°í ·¹º§À» ´Þ¼ºÇÏ¿´½À´Ï´Ù. °ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù.");
+				printf("\n\nì¶•í•˜í•©ë‹ˆë‹¤. ìµœê³  ë ˆë²¨ì„ ë‹¬ì„±í•˜ì˜€ìŠµë‹ˆë‹¤. ê²Œìž„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				exit(0);
 			}
 		}
 
-		// ¸ðµç ¹°°í±â°¡ Á×¾ú´ÂÁö È®ÀÎ
+		// ëª¨ë“  ë¬¼ê³ ê¸°ê°€ ì£½ì—ˆëŠ”ì§€ í™•ì¸
 		if (checkFishAlive() == 0)
 		{
-			// ¹°°í±â ¸ðµÎ Áê±Ý
-			printf("¸ðµç ¹°°í±â°¡ Áê±Ý.. ¤Ð¤Ð ÈæÈæ...\n");
+			// ë¬¼ê³ ê¸° ëª¨ë‘ ì¥¬ê¸ˆ
+			printf("ëª¨ë“  ë¬¼ê³ ê¸°ê°€ ì¥¬ê¸ˆ.. ã… ã…  í‘í‘...\n");
 			exit(0);
 		}
 		else
 		{
-			// ÃÖ¼Ò ÇÑ ¸¶¸® ÀÌ»óÀÇ ¹°°í±â´Â »ì¾Æ ÀÖÀ½
-			printf("¹°°í±â°¡ ¾ÆÁ÷ »ì¾ÆÀÖ¾î¿ä!\n");
+			// ìµœì†Œ í•œ ë§ˆë¦¬ ì´ìƒì˜ ë¬¼ê³ ê¸°ëŠ” ì‚´ì•„ ìžˆìŒ
+			printf("ë¬¼ê³ ê¸°ê°€ ì•„ì§ ì‚´ì•„ìžˆì–´ìš”!\n");
 		}
 		prevElapsedTime = totalElapsedTime;
 
-		// 10ÃÊ -> 15ÃÊ (5ÃÊ : prevElapsedTime) -> 25ÃÊ °¡ µÇ¾î¼­ ¹°À» ÁÖ¸é 15ÃÊ¸¦ »©¼­ 10ÃÊ°¡ µÇ¾î¾ß ÇÔ.
-		// ±Ùµ¥ 15ÃÊ¸¦ ÀúÀåÇÒ °ø°£ÀÌ ¾øÀ½ -> prevElapsedTime¿¡ ÀúÀå
+		// 10ì´ˆ -> 15ì´ˆ (5ì´ˆ : prevElapsedTime) -> 25ì´ˆ ê°€ ë˜ì–´ì„œ ë¬¼ì„ ì£¼ë©´ 15ì´ˆë¥¼ ë¹¼ì„œ 10ì´ˆê°€ ë˜ì–´ì•¼ í•¨.
+		// ê·¼ë° 15ì´ˆë¥¼ ì €ìž¥í•  ê³µê°„ì´ ì—†ìŒ -> prevElapsedTimeì— ì €ìž¥
 	}
 
 	
@@ -110,28 +110,28 @@ int main_pointer_project(void)
 
 void initData()
 {
-	level = 1;                                              // °ÔÀÓ ·¹º§( 1 - 5 )
+	level = 1;                                              // ê²Œìž„ ë ˆë²¨( 1 - 5 )
 	for (int i = 0; i < 6; i++)
 	{
-		arrayFish[i] = 100;                                 // ¾îÇ×ÀÇ ¹° ³ôÀÌ ( 0 - 100 )
+		arrayFish[i] = 100;                                 // ì–´í•­ì˜ ë¬¼ ë†’ì´ ( 0 - 100 )
 	}
 }
 
 void printfFishes()
 {
-	printf("%3d¹ø %3d¹ø %3d¹ø %3d¹ø %3d¹ø %3d¹ø\n", 1, 2, 3, 4, 5, 6);      // %3d : 3Ä­, ¹ø : 2Ä­, ½ºÆäÀÌ½º : 1Ä­  => ÃÑ 6Ä­
+	printf("%3dë²ˆ %3dë²ˆ %3dë²ˆ %3dë²ˆ %3dë²ˆ %3dë²ˆ\n", 1, 2, 3, 4, 5, 6);      // %3d : 3ì¹¸, ë²ˆ : 2ì¹¸, ìŠ¤íŽ˜ì´ìŠ¤ : 1ì¹¸  => ì´ 6ì¹¸
 	for (int i = 0; i < 6; i++)
 	{
-		printf(" %4d ", arrayFish[i]);                                      // ½ºÆäÀÌ½º * 2 : 2Ä­, %4d : 4Ä­  => ÃÑ 6Ä­
+		printf(" %4d ", arrayFish[i]);                                      // ìŠ¤íŽ˜ì´ìŠ¤ * 2 : 2ì¹¸, %4d : 4ì¹¸  => ì´ 6ì¹¸
 	}
 	printf("\n\n");
 }
 
-void decreaseWater(long elapsedTime)             // ¹è¿­Àº ÁÖ¼Ò·Î Á¢±ÙÇÏÁö ¾Ê¾Æµµ º¯°æ °¡´ÉÇÏ´Ï±î..
+void decreaseWater(long elapsedTime)             // ë°°ì—´ì€ ì£¼ì†Œë¡œ ì ‘ê·¼í•˜ì§€ ì•Šì•„ë„ ë³€ê²½ ê°€ëŠ¥í•˜ë‹ˆê¹Œ..
 {
 	for (int i = 0; i < 6; i++)
 	{
-		arrayFish[i] -= (level * 3 * (int)elapsedTime);  // 3 : ³­ÀÌµµ Á¶ÀýÀ» À§ÇÑ °ª
+		arrayFish[i] -= (level * 3 * (int)elapsedTime);  // 3 : ë‚œì´ë„ ì¡°ì ˆì„ ìœ„í•œ ê°’
 		if (arrayFish[i] < 0)
 		{
 			arrayFish[i] = 0;
@@ -143,8 +143,8 @@ int checkFishAlive()
 {
 	for (int i = 0; i < 6; i++)
 	{
-		if (arrayFish[i] > 0)                              // arrayFish[i] °¡ ¸ðµÎ 0º¸´Ù Ä¿¾ßÁö return 0 À¸·Î ³Ñ¾î°¡´Â °Ç°¡..? -> ÇÑ ¹ø 0À¸·Î ¹ÝÈ¯µÇ¸é for¹®À» Å»ÃâÇÏ°Ô µÇ´Â µí
-			return 1;                                      // Âü True
+		if (arrayFish[i] > 0)                              // arrayFish[i] ê°€ ëª¨ë‘ 0ë³´ë‹¤ ì»¤ì•¼ì§€ return 0 ìœ¼ë¡œ ë„˜ì–´ê°€ëŠ” ê±´ê°€..? -> í•œ ë²ˆ 0ìœ¼ë¡œ ë°˜í™˜ë˜ë©´ forë¬¸ì„ íƒˆì¶œí•˜ê²Œ ë˜ëŠ” ë“¯
+			return 1;                                      // ì°¸ True
 	}
 	return 0;
-}*/
+}
