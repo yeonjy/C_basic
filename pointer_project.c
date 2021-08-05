@@ -72,7 +72,7 @@ int main_pointer_project(void)
 		}
 
 		// 레벨업을 할 건지 확인 (레벨업은 20초마다 한 번씩 수행)
-		if (totalElapsedTime / 20 > level - 1)              // 19초 : 0.XX = 0    20초 : 1.XX > 0  ???????? 정수라서 그런가...
+		if (totalElapsedTime / 20 > level - 1)              // 19초 : 0.XX = 0    20초 : 1.XX > 0       long은 정수를 
 		{
 			level++;                                        // level : 1 -> level : 2
 			printf(" *** 축 레벨업! 기존 %d 레벨에서 %d 레벨로 업그레이드 ***\n\n\n", level - 1, level);
