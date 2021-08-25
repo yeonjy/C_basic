@@ -80,7 +80,7 @@ int main(void)
 	
 
 
-	 do {  } while (조건);                 // while 줄 다음에 ; 필수!
+	// do {  } while (조건);                 // while 줄 다음에 ; 필수!
 	int i = 1;
 	do {
 		printf("Hello World %d\n", i++);
